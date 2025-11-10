@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}History & Growth - LifeOS{% endblock %}
+
+{% block content %}
+<div class="history-view">
+    <header class="page-header">
+        <h1>History & Growth Tracking</h1>
+        <p class="subtitle">Your journey over time</p>
+    </header>
+
+    <!-- Statistics -->
+    <section class="history-section">
+        <h2>📊 Statistics</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>{{ total_completed }}</h3>
+                <p>Total Tasks Completed</p>
+            </div>
+            <div class="stat-card">
+                <h3>{{ projects_completed }}</h3>
+                <p>Projects Completed</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent History -->
+    <section class="history-section">
+        <h2>📜 Recent History</h2>
+        <div class="history-timeline">
+            {% for entry in recent_history %}
+            <div class="history-item">
+                <div class="history-date">{{ entry['date'] }}</div>
+                <div class="history-content">
+                    <span class="history-type">{{ entry['type'] }}</span>
+                    <p>{{ entry['content'] }}</p>
+                    {% if entry['category'] %}
+                    <span class="history-category">{{ entry['category'] }}</span>
+                    {% endif %}
+                </div>
+            </div>
+            {% else %}
+            <p class="empty-state">No history entries yet. Start using the system to track your growth!</p>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock %}
+

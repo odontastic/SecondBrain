@@ -38,7 +38,7 @@ mkdir -p People/Professional
 # Other main directories
 mkdir -p Tags
 mkdir -p Metadata
-mkdir -p Archive
+mkdir -p Archives
 
 # Add placeholder files to ensure directories are tracked by Git
 find . -type d -not -path "*/\.*" -not -path "./SecondBrainUI*" | while read dir; do

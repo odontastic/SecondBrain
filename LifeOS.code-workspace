@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"workbench.preferredDarkColorTheme": "Cursor Light",
+		"workbench.colorTheme": "Cursor Light",
+		"workbench.preferredHighContrastColorTheme": "Cursor Light",
+		"workbench.preferredHighContrastLightColorTheme": "Cursor Light",
+		"workbench.preferredLightColorTheme": "Cursor Light",
+		"window.autoDetectColorScheme": true
+	}
+}

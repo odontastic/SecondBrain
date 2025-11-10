@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}Daily Plan - LifeOS{% endblock %}
+
+{% block content %}
+<div class="daily-plan">
+    <header class="page-header">
+        <h1>Daily Plan</h1>
+        <p class="subtitle">{{ today.strftime('%A, %B %d, %Y') }}</p>
+    </header>
+
+    <!-- Kickstarters -->
+    {% if kickstarters %}
+    <section class="plan-section kickstarters">
+        <h2>💫 Kickstarters</h2>
+        <div class="kickstarter-list">
+            {% for kickstarter in kickstarters %}
+            <div class="kickstarter-item">{{ kickstarter }}</div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- Morning Plan -->
+    <section class="plan-section">
+        <h2>🌅 Morning Plan</h2>
+        <div class="plan-content">
+            <div class="plan-item">
+                <label><strong>ONE THING:</strong></label>
+                <input type="text" id="one_thing" placeholder="Your single most important task for today..." 
+                       value="{% if plan %}{{ plan['one_thing'] or '' }}{% endif %}">
+            </div>
+            <div class="plan-item">
+                <label><strong>Energy Level (1-10):</strong></label>
+                <input type="number" id="energy_level" min="1" max="10" 
+                       value="{% if plan %}{{ plan['energy_level'] or '' }}{% endif %}">
+            </div>
+            <div class="plan-item">
+                <label><strong>Catholic Intention:</strong></label>
+                <textarea id="catholic_intention" rows="2" placeholder="Your faith-focused intention for today...">{% if plan %}{{ plan.get('morning_plan', '') or '' }}{% endif %}</textarea>
+            </div>
+            <div class="template-links">
+                <a href="#" class="template-link">📝 Morning Review Template</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prioritized Tasks -->
+    <section class="plan-section">
+        <h2>✅ Prioritized Tasks</h2>
+        <div class="task-list">
+            {% if tasks %}
+                {% for task in tasks %}
+                <div class="task-item">
+                    <input type="checkbox" class="task-checkbox" data-task-id="{{ task['id'] }}">
+                    <div class="task-content">
+                        <strong>{{ task['title'] }}</strong>
+                        {% if task['description'] %}
+                        <p class="task-description">{{ task['description'] }}</p>
+                        {% endif %}
+                        {% if task['context'] %}
+                        <span class="task-context">@{{ task['context'] }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p class="empty-state">No tasks for today. Great job!</p>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- Faith-Focused Goal -->
+    <section class="plan-section">
+        <h2>🙏 Faith-Focused Goal</h2>
+        <div class="plan-content">
+            <div class="plan-item">
+                <label><strong>Weekly Catholic Goal:</strong></label>
+                <textarea id="faith_goal" rows="3" placeholder="Your faith goal for this week...">{% if plan %}{{ plan['faith_goal'] or '' }}{% endif %}</textarea>
+            </div>
+            <div class="plan-item">
+                <label><strong>Prayer Intentions:</strong></label>
+                <textarea id="prayer_intentions" rows="2" placeholder="Who or what are you praying for today?"></textarea>
+            </div>
+            <div class="template-links">
+                <a href="#" class="template-link">📖 Daily Examen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Afternoon Plan -->
+    <section class="plan-section">
+        <h2>☀️ Afternoon Plan</h2>
+        <div class="plan-content">
+            <div class="plan-item">
+                <label><strong>Check-in Notes:</strong></label>
+                <textarea id="afternoon_plan" rows="3" placeholder="How's the day going? Any adjustments needed?">{% if plan %}{{ plan.get('afternoon_plan', '') or '' }}{% endif %}</textarea>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evening Plan -->
+    <section class="plan-section">
+        <h2>🌙 Evening Plan</h2>
+        <div class="plan-content">
+            <div class="plan-item">
+                <label><strong>Evening Review:</strong></label>
+                <textarea id="evening_plan" rows="4" placeholder="What did I complete? Where did I withdraw? Lessons learned?">{% if plan %}{{ plan.get('evening_plan', '') or '' }}{% endif %}</textarea>
+            </div>
+            <div class="plan-item">
+                <label><strong>Tomorrow's ONE THING:</strong></label>
+                <input type="text" id="tomorrow_one_thing" placeholder="What's the most important thing for tomorrow?">
+            </div>
+            <div class="template-links">
+                <a href="#" class="template-link">📝 Evening Review Template</a>
+                <a href="#" class="template-link">📅 Weekly Review Template</a>
+                <a href="#" class="template-link">🗓️ Monthly Review Template</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Action Buttons -->
+    <div class="plan-actions">
+        <button class="btn btn-primary" onclick="saveDailyPlan()">💾 Save Plan</button>
+        <button class="btn btn-secondary" onclick="clearPlan()">🗑️ Clear</button>
+    </div>
+</div>
+
+<script>
+function saveDailyPlan() {
+    // TODO: Implement save functionality
+    alert('Save functionality will be implemented next!');
+}
+
+function clearPlan() {
+    if (confirm('Clear all plan data?')) {
+        document.getElementById('one_thing').value = '';
+        document.getElementById('energy_level').value = '';
+        document.getElementById('catholic_intention').value = '';
+        document.getElementById('faith_goal').value = '';
+        document.getElementById('afternoon_plan').value = '';
+        document.getElementById('evening_plan').value = '';
+        document.getElementById('tomorrow_one_thing').value = '';
+    }
+}
+</script>
+{% endblock %}
+

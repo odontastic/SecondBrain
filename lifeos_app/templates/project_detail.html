@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}{{ project.title }} - LifeOS{% endblock %}
+
+{% block content %}
+<div class="project-detail">
+    <header class="page-header">
+        <a href="{{ url_for('projects') }}" class="back-link">← Back to Projects</a>
+        <h1>{{ project.title }}</h1>
+    </header>
+
+    <div class="project-info">
+        {% if project.get('goal') %}
+        <div class="info-section">
+            <h3>Goal</h3>
+            <p>{{ project.goal }}</p>
+        </div>
+        {% endif %}
+        
+        {% if project.get('target_date') %}
+        <div class="info-section">
+            <h3>Target Completion Date</h3>
+            <p>{{ project.target_date }}</p>
+        </div>
+        {% endif %}
+        
+        {% if project.get('status') %}
+        <div class="info-section">
+            <h3>Status</h3>
+            <p><span class="status-badge status-{{ project.status.lower() }}">{{ project.status }}</span></p>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="project-content">
+        <h3>Project Details</h3>
+        <div class="markdown-content">
+            {{ project.content|safe }}
+        </div>
+    </div>
+
+    {% if tasks %}
+    <div class="project-tasks">
+        <h3>Related Tasks</h3>
+        <div class="task-list">
+            {% for task in tasks %}
+            <div class="task-item">
+                <input type="checkbox" class="task-checkbox" data-task-id="{{ task['id'] }}">
+                <div class="task-content">
+                    <strong>{{ task['title'] }}</strong>
+                    {% if task['description'] %}
+                    <p class="task-description">{{ task['description'] }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+

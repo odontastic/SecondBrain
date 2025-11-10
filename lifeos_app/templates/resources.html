@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Resources - LifeOS{% endblock %}
+
+{% block content %}
+<div class="resources-view">
+    <header class="page-header">
+        <h1>Resources</h1>
+        <p class="subtitle">Reference materials and knowledge library</p>
+    </header>
+
+    <div class="resources-list">
+        {% for resource in resources %}
+        <div class="resource-item">
+            <h3>{{ resource.title }}</h3>
+            <p class="resource-filename">{{ resource.filename }}</p>
+            <a href="{{ url_for('static', filename='../' + resource.path) }}" class="btn btn-secondary" target="_blank">Open File</a>
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <p>No resources found.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+

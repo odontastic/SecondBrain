@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Areas - LifeOS{% endblock %}
+
+{% block content %}
+<div class="areas-view">
+    <header class="page-header">
+        <h1>Areas</h1>
+        <p class="subtitle">Ongoing responsibilities and standards</p>
+    </header>
+
+    <div class="areas-grid">
+        {% for area in areas %}
+        <div class="area-card">
+            <div class="area-header">
+                <h2>{{ area.title }}</h2>
+                {% if area.metadata.get('status') %}
+                <span class="status-badge status-{{ area.metadata.status.lower() }}">
+                    {{ area.metadata.status }}
+                </span>
+                {% endif %}
+            </div>
+            
+            <div class="area-description">
+                {{ area.content[:200] }}...
+            </div>
+            
+            <div class="area-actions">
+                <a href="{{ url_for('area_detail', filename=area.filename) }}" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <p>No areas found.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
