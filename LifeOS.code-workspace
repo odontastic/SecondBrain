@@ -5,11 +5,11 @@
 		}
 	],
 	"settings": {
-		"workbench.preferredDarkColorTheme": "Cursor Light",
-		"workbench.colorTheme": "Cursor Light",
-		"workbench.preferredHighContrastColorTheme": "Cursor Light",
-		"workbench.preferredHighContrastLightColorTheme": "Cursor Light",
-		"workbench.preferredLightColorTheme": "Cursor Light",
+		"workbench.preferredDarkColorTheme": "Visual Studio Light",
+		"workbench.colorTheme": "Visual Studio Light",
+		"workbench.preferredHighContrastColorTheme": "Default High Contrast Light",
+		"workbench.preferredHighContrastLightColorTheme": "Visual Studio Light",
+		"workbench.preferredLightColorTheme": "Default Light+",
 		"window.autoDetectColorScheme": true
 	}
 }

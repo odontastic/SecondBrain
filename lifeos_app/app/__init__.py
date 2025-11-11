@@ -1,2 +1,0 @@
-# LifeOS Application Package
-

@@ -12,11 +12,5 @@ My role: domestic support, emotional presence, breaking withdrawal pattern.
 ## Active Projects
 - [[Improve Marriage Communication]]
 - [[Emotional Intelligence Development]]
-# Family MOC
-
-- [[Wife]]
-- [[Son A]]
-- [[Son B]]
-- [[Father]]
 
 > *Relationship note:* The family is the core of my personal values and informs my daily actions.
