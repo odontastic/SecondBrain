@@ -19,7 +19,7 @@ related_files:
   - "household-repairs-and-maintenance"
 related_areas:
   - "household-repairs-and-maintenance"
-next_action: "Measure broken hinge dimensions and identify cabinet make/model"
+next_action: "Research and purchase compatible hinge replacement online"
 budget: "$20-50 - Replacement hinge and supplies"
 project_phase: "Research"
 milestones:

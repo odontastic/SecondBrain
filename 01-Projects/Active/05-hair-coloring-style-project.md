@@ -20,7 +20,7 @@ related_files:
   - "personal-hair-color-spr"
 related_areas:
   - "personal-care"
-next_action: "Assess current green/blue fade status and research techniques"
+next_action: "Purchase hair coloring products and schedule time for application"
 budget: "$50-100 - Hair coloring products and supplies"
 project_phase: "Planning"
 milestones:
