@@ -1,6 +1,6 @@
 # Skills MOC
 
-- [[Python]]
+- [[AI]]
 - [[Public Speaking]]
 - [[Mindfulness]]
 - [[Relationship Skills]]

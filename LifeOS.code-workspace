@@ -10,6 +10,7 @@
 		"workbench.preferredHighContrastColorTheme": "Default High Contrast Light",
 		"workbench.preferredHighContrastLightColorTheme": "Visual Studio Light",
 		"workbench.preferredLightColorTheme": "Default Light+",
-		"window.autoDetectColorScheme": true
+		"window.autoDetectColorScheme": true,
+		"editor.fontFamily": "'IntoneMono', 'monospace', monospace"
 	}
 }
